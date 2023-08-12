@@ -46,7 +46,9 @@ export type UseChatHelpers = {
   /** Form submission handler to automattically reset input and append a user message  */
   handleSubmit: (e: any) => void
   /** Whether the API request is in progress */
-  isLoading: Ref<boolean | undefined>
+  isLoading: Ref<boolean | undefined>,
+
+  setBody: (body: any) => void
 }
 
 let uniqueId = 0
@@ -254,6 +256,10 @@ export function useChat({
     input.value = ''
   }
 
+  const setBody = (body: any) => {
+    body = body
+  }
+
   return {
     messages,
     append,
@@ -263,6 +269,7 @@ export function useChat({
     setMessages,
     input,
     handleSubmit,
-    isLoading
+    isLoading,
+    setBody
   }
 }
